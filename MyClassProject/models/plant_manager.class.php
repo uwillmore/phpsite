@@ -48,10 +48,11 @@ class PlantManager
     public function savePlant($plant){
 
         if ($plant->getPlantID()) {
-            $this->updatePlant($plant);
+           $returnVal = $this->updatePlant($plant);
         } else {
-            $this->addPlant($plant);
+            $returnVal = $this->addPlant($plant);
         }
+        return ($returnVal);
     }
 
     private function addPLant($plant){
@@ -65,8 +66,8 @@ class PlantManager
         $note = $db -> quote($plant->getPlantNote());
         $onSite = $db -> quote($plant->getEnteredOnSite());
 
-        $results = $db->query("insert into Plants (SoilID, LocationID, WeatherID, UserID, PlantName, PlantNote, EnterInSite, CreatedDate) values ($soil, $location, $weather, $user, $name, $note, $onSite, now());");
-
+        $results = $db->insert("insert into Plants (SoilID, LocationID, WeatherID, UserID, PlantName, PlantNote, EnterInSite, CreatedDate) values ($soil, $location, $weather, $user, $name, $note, $onSite, now());");
+        return ($results);
     }
 
     private function UpdatePlant($plant){
@@ -82,7 +83,7 @@ class PlantManager
         $onSite = $db -> quote($plant->getEnteredOnSite());
 
         $results = $db -> query("update Plants set PLantName=$name, UserID=$user, SoilID=$soil, LocationID = $location, WeatherID = $weather, PlantName = $name, PlantNote = $note, EnteredOnSite = $onSite where PlantID = $plantID;");
-
+        return ($results);
     }
     public function delete($arg){
 

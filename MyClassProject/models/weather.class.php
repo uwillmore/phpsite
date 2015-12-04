@@ -61,13 +61,13 @@ class weather
         print ("Ready to add a new weather<br>");
 
         $ObservationTime = $db -> quote($weather->getTime());
-        $temp = $db -> quote($weather->getTemperature());
+        $Temp = $db -> quote($weather->getTemperature());
         $Conditions = $db-> $this->quote($weather->getConditions());
 
-        $results = $db->query("insert into Weather (ObservationTime, TemperatureF, Conditions, DateEntered) values ($ObservationTime, $temp, $Conditions, now());");
-        print ("Saved new waether<br>");
-        print_r ($results);
-        exit;
+        $results = $db->insert("insert into Weather (ObservationTime, TemperatureF, Conditions, DateEntered) values ($ObservationTime, $Temp, $Conditions, now());");
+
+        print ("Saved new weather<br>");
+        return ($results);
 
     }
 }

@@ -10,7 +10,6 @@ class soil
 {
     private $_soilID;
     private $_soilType;
-    private $_soilCondition;
 
     public function getSoilUID(){return $this->_soilID;}
     public function setSoilUID($arg){$this->_soilID = $arg;}
@@ -18,19 +17,15 @@ class soil
     public function getSoilType(){return $this->_soilType;}
     public function setSoilType($arg){$this->_soilType = $arg;}
 
-    public function getSoilCondition(){return $this->_soilCondition;}
-    public function setSoilCondition($arg){$this->_soilCondition = $arg;}
-
     function hydrate ($soils){
-        $this->setSoilUID(isset($arr["SoilID"])?$arr["SoilID"]:'');
-        $this->setSoilType(isset($arr["SoilType"])?$arr["SoilType"]:'');
-        $this->setSoilCondition(isset($arr["SoilCondition"])?$arr["SoilCondition"]:'');
+        $this->setSoilUID(isset($soils["SoilID"])?$soils["SoilID"]:'');
+        $this->setSoilType(isset($soils["SoilType"])?$soils["SoilType"]:'');
     }
 
     function GetAllSoils () {
         $db = new Db();
 
-        $results = $db -> select("SELECT * from Soils");
+        $results = $db -> select("SELECT SoilID, SoilType from Soils");
 
         foreach($results as $result){
             $soil = new soil();

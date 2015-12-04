@@ -10,6 +10,7 @@ require_once ("models/plant.class.php");
 require_once ("models/Location.class.php");
 require_once ("models/weather.class.php");
 require_once ("models/soil.class.php");
+require_once ("classes/SelectMenu.php");
 
 if(!isset($_SESSION['current_user'])){
   include ('index.php');
@@ -37,10 +38,10 @@ if(!isset($_SESSION['current_user'])){
       $Soil = new soil();
 }
 
-print ("Should have user from session<br>");
-print_r ($user);
-print ("ready to start form <br>");
+$SoilList = $Soil->GetAllSoils() ;
 
+$SoilMenu = new selectMenu;
+$SoilMenu->setOptions($SoilList);
 
 Include_once ('include/header.php');
 ?>
@@ -52,38 +53,40 @@ Include_once ('include/header.php');
 <form action="SaveFlower.php" method="get">
   <input type="hidden" name="uid" value="<?= $user->getUID() ?>">
 
-  <label>Observer's Name: </label><?= $user->getName() ?><br><br>
+  <label>Observer's Name: </label><b><?= $user->getName() ?></b><br><br>
   <label>Plant Name: </label><input type="text" name="PlantName" value="<?= $Plant->getPlantName() ?>"><br>
-  <label>Entering Data on Location? </label><input type="text" name="OnSite" value="<?= $Plant->getEnteredOnSite() ?>"><br>
+  <label>Entering Data on Location? (Y/N)</label><input type="text" name="OnSite" value="<?= $Plant->getEnteredOnSite() ?>"><br>
   <label>Observation Date: </label><input type="text" name="ObservationDate" value="<?= $Plant->getPlantDate() ?>"><br>
   <label>Notes: </label><input type="text" name="PlantNotes" value="<?= $Plant->getPlantNote() ?>"><br><br><br>
 
   <label>Plant Location: </label>
   <input type="hidden" name="LocationID" value="<?= $Plant->getPlantLocation()?>"><br>
-  <label>Longitude</label><input type="text" name="Longitude" value="<?= $Location->getLongitude() ?>"><br>
-  <label>Latitude</label><input type="text" name="Latitude" value="<?= $Location->getLatitude() ?>"><br>
-  <label>GPS</label><input type="text" name="GPS" value="<?= $Location->getGPS() ?>"><br>
-  <label>Note</label><input type="text" name="Note" value="<?= $Location->getLocationNote()?>"><br><br><br>
+  <label>Longitude: </label><input type="text" name="Longitude" value="<?= $Location->getLongitude() ?>"><br>
+  <label>Latitude: </label><input type="text" name="Latitude" value="<?= $Location->getLatitude() ?>"><br>
+  <label>GPS: </label><input type="text" name="GPS" value="<?= $Location->getGPS() ?>"><br>
+  <label>Note: </label><input type="text" name="Note" value="<?= $Location->getLocationNote()?>"><br><br><br>
+
+
 
   <label>Soil Type: </label>
-  <input type="hidden" name="SoilID" value="<?= $Plant->getPlantSoil() ?>"><br>
-  <label>Soil Type</label><input type="text" name="SoilType" value="<?= $Soil->getSoilType() ?>"><br>
-  <label>Soil Conditions</label><input type="text" name="SoilConditions" value="<?= $Soil->getSoilCondition() ?>"><br><br><br>
+  <input type="hidden" name="SoilID" value=""><br>
+  <label>Soil Type: </label><?= $SoilMenu->makeMenu("Select a Soil Type", "SoilType"); ?><br>
+  <label>Soil Conditions: </label><input type="text" name="SoilConditions" value="<?= $Plant->getPlantSoil() ?>"><br><br><br>
 
   <label>Weather Conditions: </label>
   <input type="hidden" name="WeatherID" value="<?= $Plant->getPlantWeather() ?>"><br>
-  <label>ObservationTime</label><input type="text" name="ObservationTime" value="<?= $Weather->getTime() ?>"><br>
-  <label>Temperature</label><input type="text" name="Temperature" value="<?= $Weather->getTemperature() ?>"><br>
-  <label>Conditions</label><input type="text" name="Conditions" value="<?= $Weather->getConditions() ?>"><br><br><br>
+  <label>ObservationTime: </label><input type="text" name="ObservationTime" value="<?= $Weather->getTime() ?>"><br>
+  <label>Temperature: </label><input type="text" name="Temperature" value="<?= $Weather->getTemperature() ?>"><br>
+  <label>Conditions: </label><input type="text" name="Conditions" value="<?= $Weather->getConditions() ?>"><br><br><br>
   <?php
   $date = new DateTime();
-  $CurrentDate = $date->format ("'Y-m-d H:i:s'");
+  $CurrentDate = $date->format ("Y-m-d H:i:s");
   $currentConditions = "Cold And Snowing";
   $currentLocation = "Fort Collins, CO";
   ?>
-  <label>Current Time: </label><input type="text" name="CurrentTime" value="<?= $CurrentDate ?>" readonly><br>
-  <label>Current Weather Conditions</label><input type="text" name="CurrentConditions" value="<?= $currentConditions ?>" readonly><br>
-  <label>Current Location</label><input type="text" name="CurrentLocation" value="<?= $currentLocation?>" readonly><br><br><br>
+  <label>Current Date and Time: </label><input type="text" name="CurrentTime" value="<?= $CurrentDate ?>" readonly><br>
+  <label>Current Weather Conditions: </label><input type="text" name="CurrentConditions" value="<?= $currentConditions ?>" readonly><br>
+  <label>Current Location: </label><input type="text" name="CurrentLocation" value="<?= $currentLocation?>" readonly><br><br><br>
   <input type="submit" value="Save"  class='button'>
 </form>
 

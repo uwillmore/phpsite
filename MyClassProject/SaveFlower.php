@@ -76,10 +76,12 @@ if ($LocationError){
     $php_errormsg = $php_errormsg . "Please enter either GPS Coordinates or Langitude and Latitude.";
 }
 
-if (isset ($_GET ['SoilID'])){
-    $Plant->setPlantSoil($_GET ['SoilID']);
-}
-
+// URW - TODO
+// soil stuff needds to change to work with a drop down of soil types and conditions.
+// not sure if both should be drop downs or only soil type. See how Steve has done it and
+// follow that example. Then insert a new Soil type, return SoilID and save it to the plant object
+// before saving the plant data.
+/*
 if (isset ($_GET ['SoilType'])){
     $Soil->setSoilType( $_GET ['SoilType']);
 }
@@ -87,11 +89,7 @@ if (isset ($_GET ['SoilType'])){
 if (isset ($_GET ['SoilConditions'])){
     $Soil->setSoilCondition($_GET ['SoilConditions']);
 }
-
-if (isset ($_GET ['WeatherID'])){
-    $Plant->setPlantWeather($_GET ['WeatherID']);
-}
-
+*/
 if (isset ($_GET ['ObservationTime'])){
     $Weather->setTimer(['ObservationTime']);
 }
@@ -111,11 +109,21 @@ $_SESSION['current_weather'] = $Weather;
 
 // IF no error was found, save the data
 if (!(isset($php_errormsg))){
-    $Weather->SaveWeatherData($Weather);
-    $Location->SaveLocation($Location);
-    $Soil->GetSoil($Plant->getPlantSoil());
+    $WeatherID = $Weather->SaveWeatherData($Weather);
+    $LocationID = $Location->SaveLocation($Location);
+
+    $Plant->setPlantWeather($WeatherID);
+    $Plant->setPlantLocation($LocationID);
+
+    //URW TODO
+    // Soild ID should be coming from the screen since soil Type should be a drop down.
+    // Should Soil condition also be a drop down? Talk to Steve, see how he did it on his
+    // UI and follow that.
+    //$Soil->GetSoil($Plant->getPlantSoil());
+
+    $Plant->setPlantSoil(99);
     $PlantManager = new PlantManager();
-    $PlantManager->savePlant($Plant);
+    $PlantID = $PlantManager->savePlant($Plant);
 }
 
 include ("views/flower_add.php");
