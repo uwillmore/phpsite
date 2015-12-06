@@ -10,6 +10,7 @@ class weather
 {
     private $_weatherID;
     private $_observationTime;
+    private $_observationDate;
     private $_temperature;
     private $_conditions;
     private $_dateEntered;
@@ -21,14 +22,14 @@ class weather
     public function getTime(){return $this->_observationTime;}
     public function setTimer($arg){$this->_observationTime = $arg;}
 
+    public function getObservationDate(){return $this->_observationDate;}
+    public function setObservationDate($arg){$this->_observationDate = $arg;}
+
     public function getTemperature(){return $this->_temperature;}
     public function setTemperature($arg){$this->_temperature = $arg;}
 
     public function getConditions(){return $this->_conditions;}
     public function setConditions($arg){$this->_conditions = $arg;}
-
-    public function getDate(){return $this->_dateEntered;}
-    public function setDate($arg){$this->_dateEntered = $arg;}
 
     public function hydrate($arr){
         $this->setWeatherID(isset($arr["WeatherID"]) ? $arr["WeatherID"] : '');

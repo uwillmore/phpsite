@@ -25,6 +25,9 @@ class Plant
     public function getPlantUser(){return $this->_userID;}
     public function setPlantUser($arg){$this->_userID = $arg;}
 
+    public function getPlantEnteredOnSite () {return $this->_enteredOnSite;}
+    public function setPLantEnteredOnSite($arg){$this->_enteredOnSite = $arg;}
+
     public function getPlantLocation(){return $this->_locationID;}
     public function setPlantLocation($arg){$this->_locationID = $arg;}
 

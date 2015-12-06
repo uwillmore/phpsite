@@ -3,7 +3,6 @@
 
 class selectMenu {
     private $items;  // array of items.
-    private $values;
     private $options; // hold all html options
     private $selectMenu; // final select menu
 
@@ -11,11 +10,11 @@ class selectMenu {
         $this->items = $itemArray;
     }
 
-    private function buildOptions($caption) {
+    private function buildSOilOptions($caption, $values) {
         $this->options = "<option value=''>". $caption . "</option>";
-        forEach($this->values as $value) {
+        forEach($values as $value) {
             $this->options .= "<option value='"
-                . $value->getSoilUID() . "'>"
+                . $value->getSoilUID (). "'>"
                 . $value->getSoilType() . "</option>";
         }
     }
@@ -28,14 +27,9 @@ class selectMenu {
         $this->values = $array;
     }
 
-    public function makeMenu($caption, $name) {
-        $this->buildOptions($caption);
+    public function makeMenu($caption, $name, $values) {
+        $this->buildSoilOptions($caption, $values);
         $this->buildSelect($name);
         return $this->selectMenu;
     }
 }
-/*$myArray = ['Ms.','Mr.','Mrs.', 'Undetermined'];
-    $myMenu = new selectMenu;
-    $myMenu->setOptions($myArray);
-    echo $myMenu->makeMenu("Select a Title", "Title");*/
-?>

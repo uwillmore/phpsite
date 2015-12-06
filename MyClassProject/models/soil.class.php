@@ -22,18 +22,25 @@ class soil
         $this->setSoilType(isset($soils["SoilType"])?$soils["SoilType"]:'');
     }
 
-    function GetAllSoils () {
+    function GetAllSoils ()
+    {
         $db = new Db();
 
-        $results = $db -> select("SELECT SoilID, SoilType from Soils");
+        $results = $db->select("SELECT SoilID, SoilType from Soils");
 
-        foreach($results as $result){
-            $soil = new soil();
-            $soil->hydrate($result);
-            $Soils[] = $soil;
+        if ($results) {
+
+            $Soils = null;
+            foreach ($results as $result) {
+                $soil = new soil();
+                $soil->hydrate($result);
+                $Soils[] = $soil;
+            }
+
+            return $Soils;
         }
-
-        return $Soils;
+        else
+            return ($results);
     }
 
     function GetSoil ($arg) {

@@ -8,7 +8,7 @@
 
 require_once('classes/db.interface.php');
 require_once('classes/db.class.php');
-require_once('models/Plant.php');
+require_once('models/plant.class.php');
 require_once('models/soil.class.php');
 require_once('models/weather.class.php');
 require_once('models/Location.Class.php');
@@ -31,19 +31,19 @@ if (isset ($_GET['PlantName'])) {
     $Plant->setPlantName($_GET ['PlantName']);
 }
 else {
-    $php_errormsg = $php_errormsg . "Missing Plant Name. ";
+    $php_errormsg = $php_errormsg . "Missing Plant Name.<br> ";
 }
 if (isset ($_GET['OnSite'])) {
-    $Plant->setEnteredOnSite( $_GET ['OnSite"']);
+    $Plant->setPlantEnteredOnSite( $_GET ['OnSite']);
 }
 else {
-    $php_errormsg = $php_errormsg . "Missing On Site. ";
+    $php_errormsg = $php_errormsg . "Missing On Site.<br> ";
 }
 if (isset ($_GET['ObservationDate'])) {
     $Plant->setPlantDate($_GET ['ObservationDate']);
 }
 else {
-    $php_errormsg = $php_errormsg . "Missing Observation Date. ";
+    $php_errormsg = $php_errormsg . "Missing Observation Date. <br>";
 }
 if (isset ($_GET['PlantNotes'])) {
     $Plant->setPlantNote($_GET ['PlantNotes']);
@@ -61,35 +61,34 @@ if (isset ($_GET['GPS'])) {
     $Location->setGPS ($_GET ['GPS']);
 }
 
-if (isset ($_GET['Note'])) {
-    $Location->setLocationNote($_GET ['Note']);
-}
 
 $locationError = false;
 
-if (! isset ($GPS)) {
-   if (!isset($Latitude) && !isset($Longitude))
-     $LocationError = true;
+if (! $Location->getGPS() && (!$Location->getLatitude()) && !$Location->getLongitude()) {
+    $LocationError = true;
+}
+
+if (isset ($_GET['Note'])) {
+    $Location->setLocationNote($_GET ['Note']);
+    $LocationError = false;
 }
 
 if ($LocationError){
-    $php_errormsg = $php_errormsg . "Please enter either GPS Coordinates or Langitude and Latitude.";
+    $php_errormsg = $php_errormsg . "Please enter either a note describing the location, GPS Coordinates or Langitude and Latitude.<br>";
 }
 
-// URW - TODO
-// soil stuff needds to change to work with a drop down of soil types and conditions.
-// not sure if both should be drop downs or only soil type. See how Steve has done it and
-// follow that example. Then insert a new Soil type, return SoilID and save it to the plant object
-// before saving the plant data.
-/*
 if (isset ($_GET ['SoilType'])){
     $Soil->setSoilType( $_GET ['SoilType']);
+    $Plant->setPlantSoilType($_GET['SoilType']);
+}
+else {
+    $php_errormsg =  $php_errormsg . "Please select a Soil Type.<br>";
 }
 
 if (isset ($_GET ['SoilConditions'])){
-    $Soil->setSoilCondition($_GET ['SoilConditions']);
+    $Plant->setPlantSoil($_GET ['SoilConditions']);
 }
-*/
+
 if (isset ($_GET ['ObservationTime'])){
     $Weather->setTimer(['ObservationTime']);
 }
@@ -107,6 +106,24 @@ $_SESSION['current_location']= $Location;
 $_SESSION['current_soil'] = $Soil;
 $_SESSION['current_weather'] = $Weather;
 
+print " screen data was: <br>";
+
+print ("<BR><BR><BR>Soil<BR><BR>");
+print_r ($Soil, null);
+
+print ("<BR><BR><BR>Plant<br><br>");
+print_r ($Plant, null);
+
+print ("<BR><BR><BR>Weather<br><br>");
+print_r($Weather, null);
+
+print ("<BR><BR><BR>Location<br><br>");
+print_r($Location, null);
+
+print ("<BR><BR><BR>php_errormsg is: <br>");
+print ("<br><br>" . $php_errormsg . "<br>");
+
+exit;
 // IF no error was found, save the data
 if (!(isset($php_errormsg))){
     $WeatherID = $Weather->SaveWeatherData($Weather);
@@ -115,13 +132,6 @@ if (!(isset($php_errormsg))){
     $Plant->setPlantWeather($WeatherID);
     $Plant->setPlantLocation($LocationID);
 
-    //URW TODO
-    // Soild ID should be coming from the screen since soil Type should be a drop down.
-    // Should Soil condition also be a drop down? Talk to Steve, see how he did it on his
-    // UI and follow that.
-    //$Soil->GetSoil($Plant->getPlantSoil());
-
-    $Plant->setPlantSoil(99);
     $PlantManager = new PlantManager();
     $PlantID = $PlantManager->savePlant($Plant);
 }

@@ -40,6 +40,9 @@ if(!isset($_SESSION['current_user'])){
 
 $SoilList = $Soil->GetAllSoils() ;
 
+print ("<br><br>");
+print_r ($SoilList);
+print ("<br>");
 $SoilMenu = new selectMenu;
 $SoilMenu->setOptions($SoilList);
 
@@ -55,9 +58,8 @@ Include_once ('include/header.php');
 
   <label>Observer's Name: </label><b><?= $user->getName() ?></b><br><br>
   <label>Plant Name: </label><input type="text" name="PlantName" value="<?= $Plant->getPlantName() ?>"><br>
-  <label>Entering Data on Location? (Y/N)</label><input type="text" name="OnSite" value="<?= $Plant->getEnteredOnSite() ?>"><br>
-  <label>Observation Date: </label><input type="text" name="ObservationDate" value="<?= $Plant->getPlantDate() ?>"><br>
-  <label>Notes: </label><input type="text" name="PlantNotes" value="<?= $Plant->getPlantNote() ?>"><br><br><br>
+  <label>Entering Data on Location? (Y/N)</label><input type="text" name="OnSite" value="<?= $Plant->getPlantEnteredOnSite() ?>"><br>
+  <label>Plant Notes: </label><input type="text" name="PlantNotes" value="<?= $Plant->getPlantNote() ?>"><br><br><br>
 
   <label>Plant Location: </label>
   <input type="hidden" name="LocationID" value="<?= $Plant->getPlantLocation()?>"><br>
@@ -70,12 +72,13 @@ Include_once ('include/header.php');
 
   <label>Soil Type: </label>
   <input type="hidden" name="SoilID" value=""><br>
-  <label>Soil Type: </label><?= $SoilMenu->makeMenu("Select a Soil Type", "SoilType"); ?><br>
+  <label>Soil Type: </label><?= $SoilMenu->makeMenu("Select a Soil Type", "SoilType", $SoilList); ?><br>
   <label>Soil Conditions: </label><input type="text" name="SoilConditions" value="<?= $Plant->getPlantSoil() ?>"><br><br><br>
 
   <label>Weather Conditions: </label>
   <input type="hidden" name="WeatherID" value="<?= $Plant->getPlantWeather() ?>"><br>
-  <label>ObservationTime: </label><input type="text" name="ObservationTime" value="<?= $Weather->getTime() ?>"><br>
+  <label>Observation Date: </label><input type="text" name="ObservationDate" value="<?= $Weather->getObservationDate() ?>"><br>
+  <label>Observation Time: </label><input type="text" name="ObservationTime" value="<?= $Weather->getTime() ?>"><br>
   <label>Temperature: </label><input type="text" name="Temperature" value="<?= $Weather->getTemperature() ?>"><br>
   <label>Conditions: </label><input type="text" name="Conditions" value="<?= $Weather->getConditions() ?>"><br><br><br>
   <?php
