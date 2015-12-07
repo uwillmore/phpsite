@@ -58,14 +58,18 @@ class Location
         $db = new Db();
 
         print ("Ready to add a new location<br>");
+
+
         $Long = $db -> quote($this->getLongitude());
         $Lat = $db -> quote($this->getLatitude());
         $GPS = $db-> quote($this->getGPS());
-        $Note = $db->query($this->getLocationNote());
-        $query = "insert into location  (Longitude, Latitude, GPSCoordinates, LocationNotes) values ($Long, $Lat, $GPS, $Note);";
+        $Note = $db->quote($this->getLocationNote());
+        $query = "insert into Locations  (Longitude, Latitude, GPSCoordinates, LocationNotes) values ($Long, $Lat, $GPS, $Note);";
+
         $results = $db->insert($query);
 
-        print ("Save new location<br>");
+        print ("Results were: " . $results . "<br>");
+        print ("Saved new location<br>");
         return ($results);
     }
 }

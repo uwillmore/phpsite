@@ -47,31 +47,41 @@ class PlantManager
 
     public function savePlant($plant){
 
+    print ("<br> Ready to save a plant. <br><br>");
         if ($plant->getPlantID()) {
            $returnVal = $this->updatePlant($plant);
         } else {
             $returnVal = $this->addPlant($plant);
         }
+
+    print ("<br><br> Saved plant <br><br><br>");
         return ($returnVal);
     }
 
     private function addPLant($plant){
         $db = new Db();
 
+   print ("<br> Ready to Add a plant<br><br>");
+
         $name = $db -> quote($plant->getPlantName());
         $user = $db -> quote($plant->getPlantUser());
-        $location = $db->query($plant->getPlantLocation());
-        $weather = $db->query($plant->getPlantWeather());
-        $soil = $db -> quote($plant->getPlantSoil());
+        $location = $db->quote($plant->getPlantLocation());
+        $weather = $db->quote($plant->getPlantWeather());
+        $soilID = $db -> quote($plant->getPlantSoilType());
+        $soilCondition = $db -> quote ($plant->getPlantSoil());
         $note = $db -> quote($plant->getPlantNote());
         $onSite = $db -> quote($plant->getPlantEnteredOnSite());
+        $query = "insert into Plants (SoilTypeID, LocationID, WeatherID, UserID, PlantName, PlantNote, SoilCondition, EnteredOnSite, DateEntered) values ($soilID, $location, $weather, $user, $name, $note, $soilCondition, $onSite, now());";
 
-        $results = $db->insert("insert into Plants (SoilID, LocationID, WeatherID, UserID, PlantName, PlantNote, EnterInSite, CreatedDate) values ($soil, $location, $weather, $user, $name, $note, $onSite, now());");
+        $results = $db->insert($query);
+   print ("<br> Done inserting new plant.<br><br>");
         return ($results);
     }
 
     private function UpdatePlant($plant){
         $db = new Db();
+
+  print ("<br> Ready to Update  a plant<br><br>");
 
         $plantID = $db -> quote($plant->getPlantID());
         $name = $db -> quote($plant->getPlantName());
@@ -83,6 +93,7 @@ class PlantManager
         $onSite = $db -> quote($plant->getEnteredOnSite());
 
         $results = $db -> query("update Plants set PLantName=$name, UserID=$user, SoilID=$soil, LocationID = $location, WeatherID = $weather, PlantName = $name, PlantNote = $note, EnteredOnSite = $onSite where PlantID = $plantID;");
+print ("<br> Done updating   plant.<br><br>");
         return ($results);
     }
     public function delete($arg){

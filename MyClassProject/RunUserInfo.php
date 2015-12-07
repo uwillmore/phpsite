@@ -39,9 +39,18 @@ else{ // is user entered email address, go ahead and update user incase it is a 
         $User->setName($username);
         $User->setUID($UserID);
         $UserManager = new UserManager();
+
         $returnVal = $UserManager->save($User);
-        $User->setUID($returnVal);
+       // URW TODO Remove commented line
+       // No need to set user ID. this should always be an update User was added before this page
+       // came up.
+       // $User->setUID($returnVal);
         $_SESSION['current_user'] = $User;
+
+        print("<br><br>Saving to session before PlantAdd. <br>");
+
+        var_dump ($User);
+
 
     }
 

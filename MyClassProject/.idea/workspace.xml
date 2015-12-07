@@ -25,22 +25,12 @@
       <file leaf-file-name="Location.Class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/Location.Class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.153846">
-              <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+            <state vertical-scroll-proportion="-7.3076925">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
-                <marker date="1449464084113" expanded="true" signature="1465:1527" placeholder="SELECT * fro..Locations..." />
-                <marker date="1449464084113" expanded="true" signature="2022:2130" placeholder="insert into ..." />
+                <marker date="1449466720599" expanded="true" signature="1465:1527" placeholder="SELECT * fro..Locations..." />
+                <marker date="1449466720599" expanded="true" signature="2024:2133" placeholder="insert into ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="manager.abstract.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/manager.abstract.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -48,67 +38,84 @@
       <file leaf-file-name="flower_add.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/flower_add.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.811321">
-              <caret line="68" column="109" selection-start-line="68" selection-start-column="109" selection-end-line="68" selection-end-column="109" />
+            <state vertical-scroll-proportion="-3.6153846">
+              <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaveFlower.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SaveFlower.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SaveFlower.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30409357">
-              <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
+            <state vertical-scroll-proportion="-14.038462">
+              <caret line="146" column="47" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="db.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/db.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-45.76923">
-              <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plant_manager.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plant_manager.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/plant_manager.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-49.03846">
-              <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.56530213">
+              <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
               <folding>
-                <marker date="1449463733955" expanded="true" signature="293:342" placeholder="SELECT * fro..Plants..." />
-                <marker date="1449463733955" expanded="true" signature="623:643" placeholder="SELECT * fro..Plants..." />
-                <marker date="1449463733955" expanded="true" signature="1569:1748" placeholder="insert into ..." />
-                <marker date="1449463733955" expanded="true" signature="2337:2524" placeholder="update Plant..." />
-                <marker date="1449463733955" expanded="true" signature="2746:2782" placeholder="DELETE from ..." />
+                <marker date="1449468513272" expanded="true" signature="293:342" placeholder="SELECT * fro..Plants..." />
+                <marker date="1449468513272" expanded="true" signature="623:643" placeholder="SELECT * fro..Plants..." />
+                <marker date="1449468513272" expanded="true" signature="1775:1993" placeholder="insert into ..." />
+                <marker date="1449468513272" expanded="true" signature="2727:2914" placeholder="update Plant..." />
+                <marker date="1449468513272" expanded="true" signature="3183:3219" placeholder="DELETE from ..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="soil.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/soil.class.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.923077">
-              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-              <folding>
-                <marker date="1449363191659" expanded="true" signature="670:704" placeholder="SELECT SoilI..Soils..." />
-                <marker date="1449363191659" expanded="true" signature="1183:1233" placeholder="SELECT * fro..Soils..." />
-              </folding>
+            <state vertical-scroll-proportion="-8.5">
+              <caret line="13" column="4" selection-start-line="11" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user.class.php">
+      <file leaf-file-name="RunIndex.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RunIndex.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="25" />
+            <state vertical-scroll-proportion="-3.1153846">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/userInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.7307692">
+              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunUserInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RunUserInfo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.846154">
+              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plant.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/plant.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-19.615385">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -117,8 +124,8 @@
       <file leaf-file-name="user_manager.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/user_manager.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-81.73077">
-              <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+            <state vertical-scroll-proportion="68.34615">
+              <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
                 <marker date="1449180113520" expanded="true" signature="209:263" placeholder="SELECT * fro..Users..." />
                 <marker date="1449180113520" expanded="true" signature="774:821" placeholder="SELECT * fro..Users..." />
@@ -128,19 +135,6 @@
                 <marker date="1449180113520" expanded="true" signature="2932:3016" placeholder="update Users..." />
                 <marker date="1449180113520" expanded="true" signature="3069:3133" placeholder="update Users..." />
                 <marker date="1449180113520" expanded="true" signature="3354:3387" placeholder="DELETE from ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="weather.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/weather.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.8846154">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding>
-                <marker date="1449463571199" expanded="true" signature="1530:1588" placeholder="SELECT * fro..Weather..." />
-                <marker date="1449463571199" expanded="true" signature="2226:2390" placeholder="insert into ..." />
               </folding>
             </state>
           </provider>
@@ -170,7 +164,6 @@
         <option value="$PROJECT_DIR$/classes/db.interface.php" />
         <option value="$PROJECT_DIR$/classes/db.class.php" />
         <option value="$PROJECT_DIR$/RunIndex.php" />
-        <option value="$PROJECT_DIR$/RunUserInfo.php" />
         <option value="$PROJECT_DIR$/views/userInfo.php" />
         <option value="$PROJECT_DIR$/classes/options.php" />
         <option value="$PROJECT_DIR$/models/user_manager.class.php" />
@@ -179,9 +172,10 @@
         <option value="$PROJECT_DIR$/models/plant.class.php" />
         <option value="$PROJECT_DIR$/views/flower_add.php" />
         <option value="$PROJECT_DIR$/models/weather.class.php" />
-        <option value="$PROJECT_DIR$/models/plant_manager.class.php" />
-        <option value="$PROJECT_DIR$/models/Location.Class.php" />
         <option value="$PROJECT_DIR$/SaveFlower.php" />
+        <option value="$PROJECT_DIR$/models/Location.Class.php" />
+        <option value="$PROJECT_DIR$/RunUserInfo.php" />
+        <option value="$PROJECT_DIR$/models/plant_manager.class.php" />
       </list>
     </option>
   </component>
@@ -688,13 +682,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="4" selection-start-line="11" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/db.interface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -753,59 +740,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/userInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.538462">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RunIndex.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.961538">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RunUserInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.115385">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/plant.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.384615">
-          <caret line="48" column="28" selection-start-line="48" selection-start-column="20" selection-end-line="48" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/plant_manager.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-49.03846">
-          <caret line="75" column="54" selection-start-line="75" selection-start-column="54" selection-end-line="75" selection-end-column="54" />
-          <folding>
-            <marker date="1449463733955" expanded="true" signature="293:342" placeholder="SELECT * fro..Plants..." />
-            <marker date="1449463733955" expanded="true" signature="623:643" placeholder="SELECT * fro..Plants..." />
-            <marker date="1449463733955" expanded="true" signature="1569:1748" placeholder="insert into ..." />
-            <marker date="1449463733955" expanded="true" signature="2337:2524" placeholder="update Plant..." />
-            <marker date="1449463733955" expanded="true" signature="2746:2782" placeholder="DELETE from ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/soil.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.923077">
           <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
           <folding>
-            <marker date="1449363191659" expanded="true" signature="670:704" placeholder="SELECT SoilI..Soils..." />
-            <marker date="1449363191659" expanded="true" signature="1183:1233" placeholder="SELECT * fro..Soils..." />
+            <marker date="1449363191659" expanded="true" signature="-1:-1" placeholder="SELECT SoilI..Soils..." />
+            <marker date="1449363191659" expanded="true" signature="-1:-1" placeholder="SELECT * fro..Soils..." />
           </folding>
         </state>
       </provider>
@@ -818,10 +759,88 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/weather.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <marker date="1449463571199" expanded="true" signature="-1:-1" placeholder="SELECT * fro..Weather..." />
+            <marker date="1449463571199" expanded="true" signature="-1:-1" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/db.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.576923">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/manager.abstract.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SaveFlower.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.038462">
+          <caret line="146" column="47" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/Location.Class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3076925">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <marker date="1449466720599" expanded="true" signature="1465:1527" placeholder="SELECT * fro..Locations..." />
+            <marker date="1449466720599" expanded="true" signature="2024:2133" placeholder="insert into ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="4" selection-start-line="11" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/flower_add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.6153846">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunIndex.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.1153846">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7307692">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/user_manager.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-81.73077">
-          <caret line="125" column="6" selection-start-line="125" selection-start-column="6" selection-end-line="125" selection-end-column="6" />
+        <state vertical-scroll-proportion="68.34615">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
             <marker date="1449180113520" expanded="true" signature="209:263" placeholder="SELECT * fro..Users..." />
             <marker date="1449180113520" expanded="true" signature="774:821" placeholder="SELECT * fro..Users..." />
@@ -835,57 +854,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/weather.class.php">
+    <entry file="file://$PROJECT_DIR$/RunUserInfo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state vertical-scroll-proportion="-14.846154">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/plant.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.615385">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/plant_manager.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56530213">
+          <caret line="73" column="8" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
           <folding>
-            <marker date="1449463571199" expanded="true" signature="1530:1588" placeholder="SELECT * fro..Weather..." />
-            <marker date="1449463571199" expanded="true" signature="2226:2390" placeholder="insert into ..." />
+            <marker date="1449468513272" expanded="true" signature="293:342" placeholder="SELECT * fro..Plants..." />
+            <marker date="1449468513272" expanded="true" signature="623:643" placeholder="SELECT * fro..Plants..." />
+            <marker date="1449468513272" expanded="true" signature="1775:1993" placeholder="insert into ..." />
+            <marker date="1449468513272" expanded="true" signature="2727:2914" placeholder="update Plant..." />
+            <marker date="1449468513272" expanded="true" signature="3183:3219" placeholder="DELETE from ..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/manager.abstract.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/db.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.76923">
-          <caret line="70" column="33" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/Location.Class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.153846">
-          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-          <folding>
-            <marker date="1449464084113" expanded="true" signature="1465:1527" placeholder="SELECT * fro..Locations..." />
-            <marker date="1449464084113" expanded="true" signature="2022:2130" placeholder="insert into ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/flower_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.811321">
-          <caret line="68" column="109" selection-start-line="68" selection-start-column="109" selection-end-line="68" selection-end-column="109" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SaveFlower.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30409357">
-          <caret line="143" column="38" selection-start-line="143" selection-start-column="38" selection-end-line="143" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
