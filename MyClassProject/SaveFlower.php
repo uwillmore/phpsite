@@ -21,6 +21,8 @@ $Soil = new soil();
 $Location = new Location();
 $Weather = new weather();
 
+print ("_Get content");
+var_dump ($_GET);
 if (isset ($_GET['uid'])) {
     $Plant->setPlantUser($_GET ['uid']);
 }
@@ -39,25 +41,24 @@ if (isset ($_GET['OnSite'])) {
 else {
     $php_errormsg = $php_errormsg . "Missing On Site.<br> ";
 }
-if (isset ($_GET['ObservationDate'])) {
-    $Plant->setPlantDate($_GET ['ObservationDate']);
-}
-else {
-    $php_errormsg = $php_errormsg . "Missing Observation Date. <br>";
-}
+
 if (isset ($_GET['PlantNotes'])) {
     $Plant->setPlantNote($_GET ['PlantNotes']);
 }
 
+$LocationCount = 0;
 if (isset ($_GET['Longitude'])) {
+    $LocationCount++;
     $Location->setLongitude($_GET ['Longitude']);
 }
 
 if (isset ($_GET['Latitude'])) {
+    $LocationCount++;
     $Location->setLatitude($_GET ['Latitude']);
 }
 
 if (isset ($_GET['GPS'])) {
+    $LocationCount++;
     $Location->setGPS ($_GET ['GPS']);
 }
 
@@ -69,6 +70,7 @@ if (! $Location->getGPS() && (!$Location->getLatitude()) && !$Location->getLongi
 }
 
 if (isset ($_GET['Note'])) {
+    $LocationCount++;
     $Location->setLocationNote($_GET ['Note']);
     $LocationError = false;
 }
@@ -89,16 +91,25 @@ if (isset ($_GET ['SoilConditions'])){
     $Plant->setPlantSoil($_GET ['SoilConditions']);
 }
 
+$weatherCount = 0;
 if (isset ($_GET ['ObservationTime'])){
-    $Weather->setTimer(['ObservationTime']);
-}
 
+    $Weather->setTime($_GET['ObservationTime']);
+    $weatherCount++;
+}
+if (isset ($_GET ['ObservationDate'])){
+
+    $Weather->setObservationDate($_GET['ObservationDate']);
+    $weatherCount++;
+}
 if (isset ($_GET ['Temperature'])){
     $Weather->setTemperature( $_GET ['Temperature']);
+    $weatherCount++;
 }
 
 if (isset ($_GET ['Conditions'])){
     $Weather->setConditions( $_GET ['Conditions']);
+    $weatherCount++;
 }
 
 $_SESSION['current_plant'] = $Plant;
@@ -109,28 +120,35 @@ $_SESSION['current_weather'] = $Weather;
 print " screen data was: <br>";
 
 print ("<BR><BR><BR>Soil<BR><BR>");
-print_r ($Soil, null);
+var_dump ($Soil, null);
 
 print ("<BR><BR><BR>Plant<br><br>");
-print_r ($Plant, null);
+var_dump ($Plant, null);
 
 print ("<BR><BR><BR>Weather<br><br>");
-print_r($Weather, null);
+var_dump($Weather, null);
 
 print ("<BR><BR><BR>Location<br><br>");
-print_r($Location, null);
+var_dump($Location, null);
 
 print ("<BR><BR><BR>php_errormsg is: <br>");
 print ("<br><br>" . $php_errormsg . "<br>");
 
-exit;
 // IF no error was found, save the data
-if (!(isset($php_errormsg))){
-    $WeatherID = $Weather->SaveWeatherData($Weather);
-    $LocationID = $Location->SaveLocation($Location);
+if (!(isset($php_errormsg))) {
+    if ($weatherCount > 0) {
+        $WeatherID = $Weather->SaveWeatherData();
+        $Plant->setPlantWeather($WeatherID);
+    }
+    else
+        $Plant->setPlantWeather(null);
 
-    $Plant->setPlantWeather($WeatherID);
-    $Plant->setPlantLocation($LocationID);
+    if ($LocationCount > 0) {
+         $LocationID = $Location->SaveLocation();
+         $Plant->setPlantLocation($LocationID);
+    }
+    else
+        $Plant->setPlantLocation(null);
 
     $PlantManager = new PlantManager();
     $PlantID = $PlantManager->savePlant($Plant);

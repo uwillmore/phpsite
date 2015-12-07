@@ -64,7 +64,7 @@ class PlantManager
         $weather = $db->query($plant->getPlantWeather());
         $soil = $db -> quote($plant->getPlantSoil());
         $note = $db -> quote($plant->getPlantNote());
-        $onSite = $db -> quote($plant->getEnteredOnSite());
+        $onSite = $db -> quote($plant->getPlantEnteredOnSite());
 
         $results = $db->insert("insert into Plants (SoilID, LocationID, WeatherID, UserID, PlantName, PlantNote, EnterInSite, CreatedDate) values ($soil, $location, $weather, $user, $name, $note, $onSite, now());");
         return ($results);

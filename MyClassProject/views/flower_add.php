@@ -58,7 +58,7 @@ Include_once ('include/header.php');
 
   <label>Observer's Name: </label><b><?= $user->getName() ?></b><br><br>
   <label>Plant Name: </label><input type="text" name="PlantName" value="<?= $Plant->getPlantName() ?>"><br>
-  <label>Entering Data on Location? (Y/N)</label><input type="text" name="OnSite" value="<?= $Plant->getPlantEnteredOnSite() ?>"><br>
+  <label>Entering Data on Location? (Y/N)</label><input type="text" name="OnSite" value="<?= $Plant->getPlantEnteredOnSite() == 0 ? 'No' : 'Yes' ?>"><br>
   <label>Plant Notes: </label><input type="text" name="PlantNotes" value="<?= $Plant->getPlantNote() ?>"><br><br><br>
 
   <label>Plant Location: </label>

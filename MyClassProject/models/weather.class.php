@@ -13,14 +13,13 @@ class weather
     private $_observationDate;
     private $_temperature;
     private $_conditions;
-    private $_dateEntered;
 
 
     public function getWeatherID(){return $this->_weatherID;}
     public function setWeatherID($arg){$this->_weatherID = $arg;}
 
     public function getTime(){return $this->_observationTime;}
-    public function setTimer($arg){$this->_observationTime = $arg;}
+    public function setTime($arg){$this->_observationTime = $arg;}
 
     public function getObservationDate(){return $this->_observationDate;}
     public function setObservationDate($arg){$this->_observationDate = $arg;}
@@ -36,36 +35,42 @@ class weather
         $this->setTime(isset($arr["Time"]) ? $arr["Time"] : '');
         $this->setTemperature(isset($arr["Temp"]) ? $arr["Temp"] : '');
         $this->setConditions(isset($arr["Conditions"]) ? $arr["Conditions"] : '');
-        $this->setDate(isset($arr["Date"]) ? $arr["Date"] : '');
+        $this->setObservationDate(isset($arr["Date"]) ? $arr["Date"] : '');
     }
 
-    function GetWeatherByID ($arg) {
-        if(!is_numeric($arg)) return FALSE;
+    function GetWeatherByID ($arg)
+    {
+        if (!is_numeric($arg)) return FALSE;
 
         $db = new Db();
 
-        $WeatherID = $db -> quote($arg);
-        $results = $db -> select("SELECT * from Weather where WeatherID = $WeatherID limit 1");
+        $WeatherID = $db->quote($arg);
+        $results = $db->select("SELECT * from Weather where WeatherID = $WeatherID limit 1");
 
-        foreach($results as $result){
+        if ($results) {
             $weather = new weather();
-            $weather->hydrate($result);
-        }
+            foreach ($results as $result) {
+                $weather->hydrate($result);
+            }
 
-        return $weather;
-        // select and return the weather data for the specified ID
+            return $weather;
+        }
+        else
+            return ($results);
+
     }
 
-    function SaveWeatherData ($weather){
+    function SaveWeatherData (){
         $db = new Db();
 
-        print ("Ready to add a new weather<br>");
+ print ("Ready to add a new weather<br>");
 
-        $ObservationTime = $db -> quote($weather->getTime());
-        $Temp = $db -> quote($weather->getTemperature());
-        $Conditions = $db-> $this->quote($weather->getConditions());
+        $ObservationDate = $db ->quote($this->getObservationDate());
+        $ObservationTime = $db -> quote($this->getTime());
+        $Temp = $db -> quote($this->getTemperature());
 
-        $results = $db->insert("insert into Weather (ObservationTime, TemperatureF, Conditions, DateEntered) values ($ObservationTime, $Temp, $Conditions, now());");
+        $Conditions = $db-> quote($this->getConditions());
+        $results = $db->insert("insert into Weather (ObservationTime, ObservationDate, TemperatureF, Conditions, DateEntered) values ($ObservationTime, $ObservationDate, $Temp, $Conditions, now());");
 
         print ("Saved new weather<br>");
         return ($results);

@@ -25,9 +25,6 @@ class Plant
     public function getPlantUser(){return $this->_userID;}
     public function setPlantUser($arg){$this->_userID = $arg;}
 
-    public function getPlantEnteredOnSite () {return $this->_enteredOnSite;}
-    public function setPLantEnteredOnSite($arg){$this->_enteredOnSite = $arg;}
-
     public function getPlantLocation(){return $this->_locationID;}
     public function setPlantLocation($arg){$this->_locationID = $arg;}
 
@@ -49,8 +46,8 @@ class Plant
     public function getPlantDate(){return $this->_dataEntered;}
     public function setPlantDate($arg){$this->_dataEntered = $arg;}
 
-    public function getEnteredOnSite () {return $this->_enteredOnSite;}
-    public function setEnteredOnSite($arg){
+    public function getPlantEnteredOnSite () {return $this->_enteredOnSite;}
+    public function setPlantEnteredOnSite($arg){
         if ($arg === 0 || $arg === 1)
             $this->_enteredOnSite = $arg;
         else
@@ -64,9 +61,9 @@ class Plant
         $this->setPlantName(isset($arr["PlantName"])?$arr["PlantName"]:'');
         $this->setPlantSoilType(isset($arr["SoilTypeID"])?$arr["SoilTypeID"]:'');
         $this->setPlantSoil(isset($arr["SoilCondition"])?$arr["SoilCondition"]:'');
-        $this->setPlantWeather(isset($arr["WaetherID"])?$arr["WeatherID"]:'');
+        $this->setPlantWeather(isset($arr["WeatherID"])?$arr["WeatherID"]:'');
         $this->setPlantNote(isset($arr["PlantNote"])?$arr["PlantNote"]:'');
-        $this->setEnteredOnSite(isset($arr["EnteredOnSite"])?$arr["EnteredOnSite"]:'0');
+        $this->setPlantEnteredOnSite(isset($arr["EnteredOnSite"])?$arr["EnteredOnSite"]:'0');
         $this->setPlantDate(isset($arr["Date"])?$arr["Date"]:'');
     }
 
