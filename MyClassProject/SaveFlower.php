@@ -154,6 +154,6 @@ if (!(isset($php_errormsg))) {
     $PlantID = $PlantManager->savePlant($Plant);
 }
 
-include ("views/flower_add.php");
+include_once ("views/flower_add.php");
 
 ?>
