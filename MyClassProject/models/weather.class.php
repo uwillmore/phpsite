@@ -63,7 +63,7 @@ class weather
     function SaveWeatherData (){
         $db = new Db();
 
- print ("Ready to add a new weather<br>");
+// print ("Ready to add a new weather<br>");
 
         $ObservationDate = $db ->quote($this->getObservationDate());
         $ObservationTime = $db -> quote($this->getTime());
@@ -72,7 +72,7 @@ class weather
         $Conditions = $db-> quote($this->getConditions());
         $results = $db->insert("insert into Weather (ObservationTime, ObservationDate, TemperatureF, Conditions, DateEntered) values ($ObservationTime, $ObservationDate, $Temp, $Conditions, now());");
 
-        print ("Saved new weather<br>");
+ //      print ("Saved new weather<br>");
         return ($results);
 
     }

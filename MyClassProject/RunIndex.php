@@ -11,7 +11,9 @@ require_once('models/user.class.php');
 require_once('models/manager.abstract.php');
 require_once('models/user_manager.class.php');
 
-session_start();
+if (!isset ($_SESSION)) {
+    session_start();
+}
 
 if(isset($_GET['UserName'])){
 
@@ -33,13 +35,15 @@ if(isset($_GET['UserName'])){
         else
             $User = $UserManager->getUserByName($UserName);
     }
+    /* URW DEBUG
     print ("Saved UserName im RunIndex<br>");
     print_r($User);
-    $_SESSION['current_user'] = $User;
-    print("User saved to session<br> and off to UserInfo view <br>");
 
-    include('views/userInfo.php');
+    print("User saved to session<br> and off to UserInfo view <br>");
+*/
+    $_SESSION['current_user'] = $User;
+    include_once('views/userInfo.php');
 }
 else {
-    include ("index.php");
+    include_once ("index.php");
 }

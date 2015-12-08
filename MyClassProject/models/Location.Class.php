@@ -57,8 +57,7 @@ class Location
     function SaveLocation (){
         $db = new Db();
 
-        print ("Ready to add a new location<br>");
-
+     //   print ("Ready to add a new location<br>");
 
         $Long = $db -> quote($this->getLongitude());
         $Lat = $db -> quote($this->getLatitude());
@@ -68,8 +67,8 @@ class Location
 
         $results = $db->insert($query);
 
-        print ("Results were: " . $results . "<br>");
-        print ("Saved new location<br>");
+   //     print ("Results were: " . $results . "<br>");
+   //     print ("Saved new location<br>");
         return ($results);
     }
 }

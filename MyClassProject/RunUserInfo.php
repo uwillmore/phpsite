@@ -11,7 +11,9 @@ require_once('models/user.class.php');
 require_once('models/manager.abstract.php');
 require_once('models/user_manager.class.php');
 
-
+if (!isset ($_SESSION)) {
+    session_start();
+}
 if(isset($_GET['password'])){
 print "Found a password.<br>";
     $username = $_get ['name'];
@@ -47,7 +49,7 @@ else{ // is user entered email address, go ahead and update user incase it is a 
        // $User->setUID($returnVal);
         $_SESSION['current_user'] = $User;
 
-        print("<br><br>Saving to session before PlantAdd. <br>");
+     //   print("<br><br>Saving to session before PlantAdd. <br>");
 
         var_dump ($User);
 
@@ -55,6 +57,6 @@ else{ // is user entered email address, go ahead and update user incase it is a 
     }
 
     // now go to the plant data collection form
-    include ("views/flower_add.php");
+    include_once ("views/flower_add.php");
 }
 

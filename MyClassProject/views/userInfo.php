@@ -9,14 +9,16 @@
 Include_once ('include/header.php');
 
 if(!isset($_SESSION['current_user'])){
-    include ('index.php');
+    include_once ('index.php');
 }else{
     $user = $_SESSION['current_user'];
 }
 
+/* URW DEBUG
 print ("Should have user from session<br>");
 print_r ($user);
 print ("ready to start form <br>");
+*/
 ?>
 
 <html>

@@ -5,6 +5,15 @@
  * Date: 11/28/2015
  * Time: 8:37 PM
  */
+$PlantManager = new PlantManager();
+$Plants = $PlantManager->getAllPLants();
+?>
+<h1> All Plants</h1>
+
+<?php
+
+var_dump ($Plants);
 
 ?>
-<h1>This is where the admin report ould show up</h1>
+
+

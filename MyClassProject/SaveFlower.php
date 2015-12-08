@@ -6,14 +6,45 @@
  * Time: 12:51 PM
  */
 
-require_once('classes/db.interface.php');
-require_once('classes/db.class.php');
-require_once('models/plant.class.php');
-require_once('models/soil.class.php');
-require_once('models/weather.class.php');
-require_once('models/Location.Class.php');
-require_once('models/Plant_manager.class.php');
+// check if a class is defined before including it again.
 
+    require_once('classes/db.interface.php');
+    require_once('classes/db.class.php');
+    require_once('models/user.class.php');
+    require_once('models/plant.class.php');
+    require_once('models/soil.class.php');
+    require_once('models/weather.class.php');
+    require_once('models/Plant_manager.class.php');
+    require_once('models/manager.abstract.php');
+    require_once('models/user_manager.class.php');
+
+if (!class_exists('Location')) {
+    require_once('models/Location.Class.php');
+}
+
+if (!isset ($_SESSION)) {
+   // print ("Starting Session SaveFLower<br><br>");
+    session_start();
+}
+
+if (isset ($_SESSION)) {
+    if (isset ($_SESSION['current_user'])) {
+        $user = $_SESSION['current_user'];
+        /* URW DEBUG
+              print ("<br> User object set from Session<br>");
+
+              print_r ($user);
+
+              print "Save FLower Session print follows: <br>";
+              var_dump($_SESSION);
+              print ("<br>AFter session print <br>");
+              */
+    }
+}
+
+
+// to see what is defined and included use thisL:
+// debug_print_backtrace();
 $php_errormsg = null;
 
 $Plant = new Plant();
@@ -21,8 +52,6 @@ $Soil = new soil();
 $Location = new Location();
 $Weather = new weather();
 
-print ("_Get content");
-var_dump ($_GET);
 if (isset ($_GET['uid'])) {
     $Plant->setPlantUser($_GET ['uid']);
 }
@@ -112,11 +141,19 @@ if (isset ($_GET ['Conditions'])){
     $weatherCount++;
 }
 
+if (!isset ($user)) {
+    print ("<br>Resetting user object");
+    $userID = $Plant->getPlantUser();
+    $UserManager = new UserManager();
+    $user = $UserManager->getUserByID($userID);
+}
 $_SESSION['current_plant'] = $Plant;
 $_SESSION['current_location']= $Location;
 $_SESSION['current_soil'] = $Soil;
 $_SESSION['current_weather'] = $Weather;
+$_SESSION['current_user'] = $user;
 
+/* URW DEBUG
 print " screen data was: <br>";
 
 print ("<BR><BR><BR>Soil<BR><BR>");
@@ -133,7 +170,7 @@ var_dump($Location, null);
 
 print ("<BR><BR><BR>php_errormsg is: <br>");
 print ("<br><br>" . $php_errormsg . "<br>");
-
+*/
 // IF no error was found, save the data
 if (!(isset($php_errormsg))) {
     if ($weatherCount > 0) {
@@ -154,6 +191,15 @@ if (!(isset($php_errormsg))) {
     $PlantID = $PlantManager->savePlant($Plant);
 }
 
+// use REQUEST_URI or PHP_SELF TO GET The path AND filename of the current file.
+// truncate file name, append new file, pre-pend http_post to get the path to the new file.
+
+//$temp = 'Location: ' . $_SERVER['HTTP_HOST'] . '/site/phpsite/MyclassProject/views/flower_add.php';
+
+//print "<br><br> " .$temp . "<br><br>";
+
+//header('Location: ' . $_SERVER['HTTP_HOST'] . '/site/phpsite/MyclassProject/views/flower_add.php');
+//exit;
 include_once ("views/flower_add.php");
 
 ?>

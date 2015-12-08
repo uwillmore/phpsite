@@ -1,5 +1,8 @@
 <?php
 include_once ('include/header.php');
+if (!isset ($_SESSION)) {
+    session_start();
+}
 ?>
 <body>
 <form action="RunIndex.php" method="get">

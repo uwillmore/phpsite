@@ -6,17 +6,38 @@
  * Date: 11/2/2015
  * Time: 7:50 PM
  */
-require_once ("models/plant.class.php");
-require_once ("models/Location.class.php");
-require_once ("models/weather.class.php");
-require_once ("models/soil.class.php");
-require_once ("classes/SelectMenu.php");
+
+
+  require_once("models/plant.class.php");
+
+if (!class_exists('Location')) {
+  require_once("models/Location.class.php");
+}
+  require_once("models/weather.class.php");
+  require_once("models/soil.class.php");
+  require_once("models/user.class.php");
+  require_once("classes/SelectMenu.php");
+
+if (!isset ($_SESSION)) {
+print ("REsetting session im flower_add");
+  session_start();
+}
+$temp = 'Location: ' . $_SERVER['HTTP_HOST'] . '/site/phpsite/MyclassProject/index.php';
+
+//print "<br><br> " .$temp . "<br><br>";
+
 
 if(!isset($_SESSION['current_user'])){
-  include ('index.php');
+ print "<p> <h1>session not set </h1> </p><br><br>";
+// header('Location: ' . $_SERVER['HTTP_HOST'] . '/site/phpsite/MyclassProject/index.php');
+ // exit;
 }else{
   $user = $_SESSION['current_user'];
-
+/* URW DEBUG
+  print "Add FLower: Session print follows: <br>";
+var_dump ($_SESSION);
+print ("<br>AFter session print <br>");
+*/
   if(isset($_SESSION['current_plant']))
     $Plant = $_SESSION['current_plant'];
   else
@@ -31,18 +52,11 @@ if(!isset($_SESSION['current_user'])){
       $Weather = $_SESSION['current_weather'];
   else
       $Weather = new weather();
-
-  if(isset($_SESSION['current_soil']))
-      $Soil = $_SESSION['current_soil'];
-  else
-      $Soil = new soil();
 }
 
+$Soil = new soil();
 $SoilList = $Soil->GetAllSoils() ;
 
-print ("<br><br>");
-print_r ($SoilList);
-print ("<br>");
 $SoilMenu = new selectMenu;
 $SoilMenu->setOptions($SoilList);
 
