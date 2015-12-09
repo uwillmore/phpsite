@@ -1,3 +1,4 @@
+<?php
 
 /**
  * Created by PhpStorm.
@@ -5,7 +6,7 @@
  * Date: 11/28/2015
  * Time: 9:22 PM
  */
-<?php
+
 class PlantManager
 {
 

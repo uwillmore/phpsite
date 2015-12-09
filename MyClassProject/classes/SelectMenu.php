@@ -20,7 +20,7 @@ class selectMenu {
     }
 
     private function buildSelect($name) {
-        $this->selectMenu = "<select name='". $name . "'>".$this->options."</select>";
+        $this->selectMenu = "<select id='soildropdown' class='form-control' name='". $name . "'>".$this->options."</select>";
     }
 
     public function setOptions($array) {
