@@ -38,10 +38,9 @@ class User{
   
   public function getRole(){return $this->_role;}
   public function setRole($arg){
-    if ($arg === 0 || $arg === 1)
+
     $this->_role = $arg;
-    else
-      $this->_role =0;
+
   }
   
   public function isAdmin(){
@@ -52,12 +51,14 @@ class User{
   }
     
   public function hydrate($arr) {
+
     $this->setUID(isset($arr["UserID"])?$arr["UserID"]:'');
     $this->setName(isset($arr["UserName"])?$arr["UserName"]:'');
     $this->setPassword(isset($arr["UserPassword"])?$arr["UserPassword"]:'');
     $this->setMail(isset($arr["UserEmail"])?$arr["UserEmail"]:'');
     $this->setCreated(isset($arr["CreatedDate"])?$arr["CreatedDate"]:'');
     $this->setRole(isset($arr["UserRole"])?$arr["UserRole"]:'0');
+
   }
   
 }

@@ -30,19 +30,21 @@ Include_once ('include/header.php');
             <input type="hidden" name="name" value="<?= $user->getName() ?>">
             <input type="hidden" name="UserRole" value="<?= $user->getRole() ?>"><br>
 
-            <?php if ($user->getRole () === 1){ ?>
+            <?php if ($user->isAdmin()){ ?>
+                <h2> FOund Admin user</h2>
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input class="form-control" placeholder="Enter Email" id="email" type="text" name="email" value="<?= $user->getMail() ?>">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input class="form-control" type="password" name="password" placeholder="password" value="<?= $password ?>" pattern=".{5,10}" title="5 to 50 characters" required>
+                    <input class="form-control" type="password" name="password" placeholder="password" value="" pattern=".{5,10}" title="5 to 50 characters" required>
                 </div>
                 <div class="text-center">
                     <button type="submit"  class='btn btn-default btn-block'>Log In</button>
                 </div>
             <?php } else { ?>
+                <h2> User is not admin</h2>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="input-group">

@@ -17,9 +17,8 @@ class UserManager extends Manager{
         $user = new User();
         $user->hydrate($result);
       }
-      
-      
-      if(password_verify($password, $user->getPassword())){
+
+      if(password_verify($password, $user->getPassword()) || $user->getPassword() === $password){
         return $user;
       } else {
         return FALSE;
@@ -40,9 +39,10 @@ class UserManager extends Manager{
       foreach($results as $result){
         $user = new User();
         $user->hydrate($result);
+        return $user;
       }
-      
-      return $user;
+
+      return null;
     
   }
 
@@ -59,6 +59,7 @@ class UserManager extends Manager{
             $user->hydrate($result);
             return ($user);
         }
+
         return (null);
     }
 
@@ -93,8 +94,8 @@ class UserManager extends Manager{
 
     $name = $db -> quote($user->getName());
     $mail = $db -> quote($user->getMail());
-   // $pass = password_hash($user->getPassword(), PASSWORD_BCRYPT, array("cost" => 10));
-   // $pass = $db -> quote($pass);
+    $pass = password_hash($user->getPassword(), PASSWORD_BCRYPT, array("cost" => 10));
+    $pass = $db -> quote($pass);
     $pass = $db -> quote($user->getPassword());
 
     $results = $db->insert("insert into Users (UserName, UserPassword, UserEmail, CreatedDate) values ($name, $pass, $mail, now());");
@@ -113,11 +114,11 @@ class UserManager extends Manager{
     $role = $db -> quote($user->getRole());
     
     if($user->getPassword()){
-     // $pass = password_hash($user->getPassword(), PASSWORD_BCRYPT, array("cost" => 10));
-      //$pass = $db -> quote($pass);
-      $pass = $db -> quote($user->getPassword());
+        $pass = password_hash($user->getPassword(), PASSWORD_BCRYPT, array("cost" => 10));
+        $pass = $db -> quote($pass);
+        $pass = $db -> quote($user->getPassword());
     } else {
-      $pass = '';
+        $pass = '';
     }
 
     if(!empty($pass)){

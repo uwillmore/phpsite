@@ -21,12 +21,19 @@ require_once('models/user_manager.class.php');
 if (!isset ($_SESSION)) {
     session_start();
 }
-if(isset($_GET['password'])){
-print "Found a password.<br>";
-    $username = $_get ['name'];
+if(isset($_GET['password'])) {
+    print "Found a password.<br>";
+    $username = $_GET ['name'];
     $UserID = $_GET['UID'];
+    $password = $_GET['password'];
     $userManager = new UserManager();
-    $User = $userManager->authenticate($username, $password);
+    if ($User = $userManager->authenticate($username, $password)) {
+
+        print ("<br><br>Password was right<br><br>");
+    }
+    else {
+        print ("<br><br>Password did not match.<br><br>");
+    }
     // if user was authenticated, redirect to report form
     // after you save User data to sesson
     // otherwise, return to UserInfo page.
@@ -34,7 +41,7 @@ print "Found a password.<br>";
         include('views/userInfo.php');
     else {
         $_SESSION['current_user'] = $User;
-        include('view/report.php');
+        include('views/report.php');
     }
 }
 else{ // is user entered email address, go ahead and update user in case it is a new email.
