@@ -5,6 +5,13 @@
  * Date: 11/28/2015
  * Time: 8:14 PM
  */
+require_once("models/plant.class.php");
+if (!class_exists('Location')) {
+    require_once("models/Location.class.php");
+}
+require_once("models/weather.class.php");
+
+
 require_once('classes/db.interface.php');
 require_once('classes/db.class.php');
 require_once('models/user.class.php');
@@ -30,7 +37,7 @@ print "Found a password.<br>";
         include('view/report.php');
     }
 }
-else{ // is user entered email address, go ahead and update user incase it is a new email.
+else{ // is user entered email address, go ahead and update user in case it is a new email.
 
     if (isset ($_GET['email'])){
         $username = $_GET ['name'];
@@ -51,7 +58,7 @@ else{ // is user entered email address, go ahead and update user incase it is a 
 
      //   print("<br><br>Saving to session before PlantAdd. <br>");
 
-        var_dump ($User);
+        /*var_dump ($User);*/
 
 
     }
