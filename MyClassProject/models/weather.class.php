@@ -71,7 +71,7 @@ class weather
 
         $Conditions = $db-> quote($this->getConditions());
         $results = $db->insert("insert into Weather (ObservationTIme, ObservationDate, TemperatureF, Conditions, DateEntered) values ($ObservationTime, $ObservationDate, $Temp, $Conditions, now());");
-        
+
  //      print ("Saved new weather<br>");
         return ($results);
 

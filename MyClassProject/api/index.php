@@ -1,10 +1,12 @@
 <?php
 
-require 'vendor/autoload.php';
-require 'controllers/ApiController.php';
+/*require 'vendor/autoload.php';
+require 'controllers/ApiController.php';*/
 
-die('this is in index.php');
+/*Flight::route('observations', function(){
+    echo 'hello world';
+});
 
-Flight::route('observations', array('ApiController','index'));
+Flight::start();*/
 
-Flight::start();
+echo json_encode($_SERVER);
