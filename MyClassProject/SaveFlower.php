@@ -99,9 +99,10 @@ if ($LocationError){
     $php_errormsg = $php_errormsg . "Please enter either a note describing the location, GPS Coordinates or Langitude and Latitude.<br>";
 }
 
-if (isset ($_GET ['SoilType'])){
+if (isset ($_GET ['SoilType']) && $_GET ['SoilType'] > 0    ){
     $Soil->setSoilType( $_GET ['SoilType']);
     $Plant->setPlantSoilType($_GET['SoilType']);
+
 }
 else {
     $php_errormsg =  $php_errormsg . "Please select a Soil Type.<br>";
@@ -114,13 +115,13 @@ if (isset ($_GET ['SoilConditions'])){
 $weatherCount = 0;
 if (isset ($_GET ['ObservationTime'])){
     $ObservationTime = date("H:i", strtotime($_GET['ObservationTime']));
-    print ("<br> In SaveFlower, ObservationTime is: " . $ObservationTime . "<br>");
     $Weather->setTime($ObservationTime);
     $weatherCount++;
 }
 if (isset ($_GET ['ObservationDate'])){
 
-    $Weather->setObservationDate($_GET['ObservationDate']);
+    $ObservationDate =  date("m:d:Y", strtotime($_GET['ObservationDate']));
+    $Weather->setObservationDate($ObservationDate);
     $weatherCount++;
 }
 if (isset ($_GET ['Temperature'])){
@@ -131,6 +132,15 @@ if (isset ($_GET ['Temperature'])){
 if (isset ($_GET ['Conditions'])){
     $Weather->setConditions( $_GET ['Conditions']);
     $weatherCount++;
+}
+
+if (isset ($_GET ['ObservationDate']) && !isset ($_GET ['ObservationTime'])) {
+    $php_errormsg = $php_errormsg . "Please set date AND Time of the observation.<br>";
+    $weatherCount = 0;
+}
+if ((isset ($_GET ['Temperature']) || isset ($_GET ['Conditions'])) && !isset ($_GET ['ObservationDate'])){
+    $php_errormsg = $php_errormsg . " Please set the date and time of the observation. <br>";
+    $weatherCount = 0;
 }
 
 if (!isset ($user)) {
