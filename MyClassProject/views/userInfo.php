@@ -24,7 +24,7 @@ Include_once ('include/header.php');
 
 <div class="row">
     <div class="col-sm-4 col-sm-offset-4">
-        <h3 class="text-center">Name: <?= $user->getName() ?></h3>
+        <h3 class="text-center">Observer's Name: <?= $user->getName() ?></h3>
         <form action="RunUserInfo.php" method="get">
             <input type="hidden" name="UID" value="<?= $user->getUID() ?>">
             <input type="hidden" name="name" value="<?= $user->getName() ?>">

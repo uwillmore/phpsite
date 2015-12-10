@@ -150,8 +150,8 @@ Include_once ('include/header.php');
       <?php
       $date = new DateTime('America/Denver');
       $CurrentDate = $date->format ("Y-m-d H:i:s");
-      $currentConditions = "Cold And Snowing";
-      $currentLocation = "Fort Collins, CO";
+      $currentConditions = "Loading...";
+      $currentLocation = "Loading...";
       ?>
 
       <div class="form-group">
@@ -175,6 +175,7 @@ Include_once ('include/header.php');
   </div>
 </div>
 
-</div>
-</body>
-</html>
+<?php
+$scripts = ['weatherLocation.js'];
+include 'views/footer.php';
+?>
