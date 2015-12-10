@@ -30,20 +30,11 @@ if (!isset ($_SESSION)) {
 if (isset ($_SESSION)) {
     if (isset ($_SESSION['current_user'])) {
         $user = $_SESSION['current_user'];
-        /* URW DEBUG
-              print ("<br> User object set from Session<br>");
-
-              print_r ($user);
-
-              print "Save FLower Session print follows: <br>";
-              var_dump($_SESSION);
-              print ("<br>AFter session print <br>");
-              */
     }
 }
 
 
-// to see what is defined and included use thisL:
+// to see what is defined and included use this:
 // debug_print_backtrace();
 $php_errormsg = null;
 
@@ -122,8 +113,9 @@ if (isset ($_GET ['SoilConditions'])){
 
 $weatherCount = 0;
 if (isset ($_GET ['ObservationTime'])){
-
-    $Weather->setTime($_GET['ObservationTime']);
+    $ObservationTime = date("H:i", strtotime($_GET['ObservationTime']));
+    print ("<br> In SaveFlower, ObservationTime is: " . $ObservationTime . "<br>");
+    $Weather->setTime($ObservationTime);
     $weatherCount++;
 }
 if (isset ($_GET ['ObservationDate'])){
@@ -147,11 +139,7 @@ if (!isset ($user)) {
     $UserManager = new UserManager();
     $user = $UserManager->getUserByID($userID);
 }
-$_SESSION['current_plant'] = $Plant;
-$_SESSION['current_location']= $Location;
-$_SESSION['current_soil'] = $Soil;
-$_SESSION['current_weather'] = $Weather;
-$_SESSION['current_user'] = $user;
+
 
 /* URW DEBUG
 print " screen data was: <br>";
@@ -170,6 +158,7 @@ var_dump($Location, null);
 
 print ("<BR><BR><BR>php_errormsg is: <br>");
 print ("<br><br>" . $php_errormsg . "<br>");
+
 */
 // IF no error was found, save the data
 if (!(isset($php_errormsg))) {
@@ -191,15 +180,20 @@ if (!(isset($php_errormsg))) {
     $PlantID = $PlantManager->savePlant($Plant);
 }
 
-// use REQUEST_URI or PHP_SELF TO GET The path AND filename of the current file.
-// truncate file name, append new file, pre-pend http_post to get the path to the new file.
+// Reset the values that should not be re-used if another plant is entered by the user.
+// URW I am leaving the rest of the data, for convinience to allow the user to entered multiple plants
+// which were likely observed at the same time in the same place.
 
-//$temp = 'Location: ' . $_SERVER['HTTP_HOST'] . '/site/phpsite/MyclassProject/views/flower_add.php';
+$Plant->setPlantName("");
+$Plant->getPlantID("");
+$Plant->getPlantNote("");
 
-//print "<br><br> " .$temp . "<br><br>";
 
-//header('Location: ' . $_SERVER['HTTP_HOST'] . '/site/phpsite/MyclassProject/views/flower_add.php');
-//exit;
+$_SESSION['current_plant'] = $Plant;
+$_SESSION['current_location']= $Location;
+$_SESSION['current_soil'] = $Soil;
+$_SESSION['current_weather'] = $Weather;
+$_SESSION['current_user'] = $user;
 include_once ("views/flower_add.php");
 
 ?>

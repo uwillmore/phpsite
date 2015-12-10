@@ -56,7 +56,7 @@ class PlantManager
         $query = $query . " join Locations L on L.LocationID = P.LocationID ";
         $query = $query . " join Soils S on S.SoilID = P.SoilTypeID ";
         $query = $query . " Order by P.DateEntered, P.PlantName, U.UserName ";
-        $results = $db -> select($query);
+        $results = $db -> select ($query);
 
         foreach($results as $result){
             $plant = new Plant();
@@ -66,6 +66,32 @@ class PlantManager
 
         return $plants;
 
+    }
+
+    public function getAllPlantsAsMSQLiObjects()
+    {
+        $db = new Db();
+
+        $query = " select P.PlantID, P.PlantName, P.PlantNote, P.SoilCondition, P.EnteredOnSite, P.DateEntered, ";
+        $query = $query . " U.UserName, U.UserEmail, U.UserRole, ";
+        $query = $query . " S.SoilType, W.ObservationDate, W.ObservationTime, W.TemperatureF, W.Conditions, ";
+        $query = $query . " L.Longitude, L.Latitude, L.GPSCoordinates, L.LocationNotes ";
+        $query = $query . " from Plants as P  ";
+        $query = $query . " join Users as U on U.userID = P.userID ";
+        $query = $query . " join Weather W on P.WeatherID = W.WeatherID ";
+        $query = $query . " join Locations L on L.LocationID = P.LocationID ";
+        $query = $query . " join Soils S on S.SoilID = P.SoilTypeID ";
+        $query = $query . " Order by P.DateEntered, P.PlantName, U.UserName ";
+
+
+        $rows = $db -> query($query);
+
+        if ($rows) {
+        return $rows;
+        }
+        else {
+            return false;
+        }
     }
 
     public function savePlant($plant){
