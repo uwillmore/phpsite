@@ -34,9 +34,6 @@ if(isset($_GET['UserName'])){
             $User->setUID($returnVal);
         else
             $User = $UserManager->getUserByName($UserName);
-
-        print ("<br><Br> User from DB <br><Br> ");
-        var_dump($User);
     }
     /* URW DEBUG
     print ("Saved UserName im RunIndex<br>");
