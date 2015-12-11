@@ -22,14 +22,14 @@ if (!isset ($_SESSION)) {
     session_start();
 }
 if(isset($_GET['password'])) {
-    print "Found a password.<br>";
+    /*print "Found a password.<br>";*/
     $username = $_GET ['name'];
     $UserID = $_GET['UID'];
     $password = $_GET['password'];
     $userManager = new UserManager();
     if ($User = $userManager->authenticate($username, $password)) {
 
-        print ("<br><br>Password was right<br><br>");
+        /*print ("<br><br>Password was right<br><br>");*/
     }
     else {
         print ("<br><br>Password did not match.<br><br>");

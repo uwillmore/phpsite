@@ -58,13 +58,13 @@ class PlantManager
         $query = $query . " Order by P.DateEntered, P.PlantName, U.UserName ";
         $results = $db -> select ($query);
 
-        foreach($results as $result){
+        /*foreach($results as $result){
             $plant = new Plant();
             $plant->hydrate($result);
             $plants[] = $plant;
-        }
+        }*/
 
-        return $plants;
+        return json_encode($results);
 
     }
 

@@ -11,14 +11,20 @@ require_once("models/plant_manager.class.php");
 
 $PlantManager = new PlantManager();
 $Plants = $PlantManager->getAllPLants();
+
+include_once 'include/Header.php';
 ?>
 <h1> All Plants</h1>
 <form name="Report" action="ExportData.php" method="get">
-    <input type="submit" name="Export" value="Export">
-    <input type="submit" name="Exit" value="Exit">
+    <button type="submit" name="Export" class="btn btn-default">Export</button>
+    <button type="submit" name="Exit" class="btn btn-default">Exit</button>
 </form>
+
+<div id="table"></div>
 <?php
 
-print_r ($Plants);
+echo '<script type="text/javascript"> var plants = ' . $Plants . '; </script>';
 
+$scripts = ['jquery.jsontotable.min.js', 'reportTable.js'];
+include_once 'views/footer.php';
 ?>
